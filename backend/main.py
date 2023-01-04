@@ -14,7 +14,7 @@ app.add_middleware(
 
 @app.get("/")
 async def root(text):
-    openai.api_key = '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'
+    openai.api_key = os.environ['OPENAI_API_KEY']
     response = openai.Completion.create(
         model="text-davinci-003",
         prompt="Translate this paragraph into Traditional Chinese:\n\n" + text + "\n\n1.",
